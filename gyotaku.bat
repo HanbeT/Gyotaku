@@ -17,7 +17,7 @@ exit /b
     set outputFileName=%outputDir%\gyotaku-%timestamp%.txt
 
     echo Target folder is '%inputDir%'. > %outputFileName%
-
+    echo. >> %outputFileName%
     call :searchDir %outputFileName% %inputDir%
 
     echo Finish. Result file is '%outputFileName%'.
