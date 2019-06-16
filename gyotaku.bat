@@ -1,4 +1,5 @@
 @echo off
+
 setlocal enabledelayedexpansion
 
 call :main
@@ -15,6 +16,8 @@ exit /b
     set timestamp=%timestamp::=%
     set outputFileName=%outputDir%\gyotaku-%timestamp%.txt
 
+    echo Target folder is '%inputDir%'. > %outputFileName%
+
     call :searchDir %outputFileName% %inputDir%
 
     echo Finish. Result file is '%outputFileName%'.
@@ -22,4 +25,9 @@ exit /b
 
 :searchDir
     
+    for /r %2 %%i in (*) do (
+        set tmpDir=%%i
+        set tmpDir=!tmpDir:%2=!
+        echo !tmpDir! >> %1
+    )
     exit /b
