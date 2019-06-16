@@ -15,5 +15,11 @@ exit /b
     set timestamp=%timestamp::=%
     set outputFileName=%outputDir%\gyotaku-%timestamp%.txt
 
+    call :searchDir %outputFileName% %inputDir%
+
     echo Finish. Result file is '%outputFileName%'.
+    exit /b
+
+:searchDir
+    
     exit /b
